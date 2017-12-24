@@ -2,16 +2,16 @@ Steps:
 1. ./installDocker.sh
 2. ./manageDockerUser.sh
 3. For monero
-3.1 sudo docker build -f dockerfile.monero.build -t WHATEVER_NAME_YOU_PREFER .
-3.2 docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> -a cryptonight -o stratum+tcp://<host>:<port> -u MONERO_WALLET_ADDRESS_HERE -p x -t 2
+   1 sudo docker build -f dockerfile.monero.build -t WHATEVER_NAME_YOU_PREFER .
+   2 docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> -a cryptonight -o stratum+tcp://<host>:<port> -u MONERO_WALLET_ADDRESS_HERE -p x -t 2
 4. For litecoin
-4.1 sudo docker build -f dockerfile.litecoin.build -t WHATEVER_NAME_YOU_PREFER .
-4.2 docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> --url stratum+tcp://<host>:<port> --user <YOUR Public Litecoin address> --pass <as set by your or host>
+   1 sudo docker build -f dockerfile.litecoin.build -t WHATEVER_NAME_YOU_PREFER .
+   2 docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> --url stratum+tcp://<host>:<port> --user <YOUR Public Litecoin address> --pass <as set by your or host>
 
 
 Side notes:
 - Related to monero
-- In 3.2 -t represents thread, to set optimal thread number , a general advise is 1 thread per 2 MB of cpu cache
+- In step, 3.2 -t represents thread, to set optimal thread number , a general advise is 1 thread per 2 MB of cpu cache
 - How to find out the cpu cache? 
 -- lscpu in nix terminal, you will get details about cpu and cache among other things. e.g. L3 cache: 8192K  i.e. 8 MB , therefore 4 threads for optimal performance 
 - If you are mining using a pool with your personal computer, whose capacity is 100H/s i.e 100 hashes per second
