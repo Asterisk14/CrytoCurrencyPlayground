@@ -2,11 +2,11 @@ Steps:
 1. ./installDocker.sh
 2. ./manageDockerUser.sh
 3. For monero
-    i. sudo docker build -f dockerfile.monero.build -t WHATEVER_NAME_YOU_PREFER .
-    ii. docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> -a cryptonight -o stratum+tcp://<host>:<port> -u MONERO_WALLET_ADDRESS_HERE -p x -t 2
+    1. sudo docker build -f dockerfile.monero.build -t WHATEVER_NAME_YOU_PREFER .
+    2. docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> -a cryptonight -o stratum+tcp://<host>:<port> -u MONERO_WALLET_ADDRESS_HERE -p x -t 2
 4. For litecoin
-   i. sudo docker build -f dockerfile.litecoin.build -t WHATEVER_NAME_YOU_PREFER .
-   ii. docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> --url stratum+tcp://<host>:<port> --user <YOUR Public Litecoin address> --pass <as set by your or host>
+    1. sudo docker build -f dockerfile.litecoin.build -t WHATEVER_NAME_YOU_PREFER .
+    2. docker run <WHATEVER NAME YOU GAVE AS WHATEVER_NAME_YOU_PREFER> --url stratum+tcp://<host>:<port> --user <YOUR Public Litecoin address> --pass <as set by your or host>
 
 
 Side notes:
