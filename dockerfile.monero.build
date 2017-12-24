@@ -1,0 +1,29 @@
+#
+# Dockerfile for cpuminer-multi
+# usage: 
+# build: sudo docker build -f dockerfile.monero.build -t asterisk14-monerominer-v1 .
+# run: docker run asterisk14-monerominer-v1 -a cryptonight -o stratum+tcp://pool.minexmr.com:4444 -u WALLET_ADDRESS_HERE -p x -t 2
+#
+#
+
+FROM		ubuntu:16.04
+MAINTAINER	Asterisk14 <ankit.9644@gmail.com>
+
+RUN		apt-get update -qq
+
+RUN		apt-get install -qqy automake
+RUN		apt-get install -qqy libcurl4-openssl-dev
+RUN             apt-get install -qqy build-essential
+RUN             apt-get install -qqy libjansson-dev
+RUN             apt-get install -qqy autotools-dev
+RUN		apt-get install -qqy git
+RUN		apt-get install -qqy make
+
+RUN		git clone https://github.com/hyc/cpuminer-multi
+
+RUN		cd cpuminer-multi && ./autogen.sh
+RUN		cd cpuminer-multi && ./configure CFLAGS="-march=native"
+RUN		cd cpuminer-multi && make
+
+WORKDIR		/cpuminer-multi
+ENTRYPOINT	["./minerd"]
